@@ -39,11 +39,11 @@
                                 <td>{{$order->address}}</td>
                                 @if ($order->status == 0)
                                     <td>
-                                        <a href="{{route('order.updtaeStatus',$order->id)}}" class="btn btn-danger">processing</a>
+                                        <a href="{{route('order.updateStatus',$order->id)}}" class="btn btn-danger">processing</a>
                                     </td>
                                 @else
                                     <td>
-                                        <a href="{{route('order.updtaeStatus',$order->id)}}" class="btn btn-success">Delivered</a>
+                                        <a href="{{route('order.updateStatus',$order->id)}}" class="btn btn-success">Delivered</a>
                                     </td>
                                 @endif
                                 <td>

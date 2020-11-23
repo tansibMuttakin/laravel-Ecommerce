@@ -145,26 +145,44 @@
   </div>
 @endsection
 @push('scripts')
+  {{-- pusher js code --}}
   <script>
-    document.getElementById('r1').addEventListener('click', function(){
-            Array.from(document.querySelectorAll(".slide-img")).forEach(element=>{
-                element.style.marginLeft = "0%";
-            })
-        })
-        document.getElementById('r2').addEventListener('click', function(){
-            Array.from(document.querySelectorAll(".slide-img")).forEach(element=>{
-                element.style.marginLeft = "-200%";
-            })
-        })
-        document.getElementById('r3').addEventListener('click', function(){
-            Array.from(document.querySelectorAll(".slide-img")).forEach(element=>{
-                element.style.marginLeft = "-400%";
-            })
-        })
-        document.getElementById('r4').addEventListener('click', function(){
-            Array.from(document.querySelectorAll(".slide-img")).forEach(element=>{
-                element.style.marginLeft = "-600%";
-            })
-        })
+    @if(Auth::check())
+        // Enable pusher logging - don't include this in production
+        Pusher.logToConsole = true;
+
+        var pusher = new Pusher('abf9f842597977bf810e', {
+          encrypted: true,
+          cluster: 'mt1'
+        });
+
+        var channel = pusher.subscribe('orderTracker.'+{{Auth::user()->id}});
+        channel.bind("App\\Events\\OrderStatusChanged", function(data) {
+            alert("true");
+        });
+    @endif
+  </script>
+
+  <script>
+      document.getElementById('r1').addEventListener('click', function(){
+          Array.from(document.querySelectorAll(".slide-img")).forEach(element=>{
+              element.style.marginLeft = "0%";
+          })
+      })
+      document.getElementById('r2').addEventListener('click', function(){
+          Array.from(document.querySelectorAll(".slide-img")).forEach(element=>{
+              element.style.marginLeft = "-200%";
+          })
+      })
+      document.getElementById('r3').addEventListener('click', function(){
+          Array.from(document.querySelectorAll(".slide-img")).forEach(element=>{
+              element.style.marginLeft = "-400%";
+          })
+      })
+      document.getElementById('r4').addEventListener('click', function(){
+          Array.from(document.querySelectorAll(".slide-img")).forEach(element=>{
+              element.style.marginLeft = "-600%";
+          })
+      })
   </script>
 @endpush

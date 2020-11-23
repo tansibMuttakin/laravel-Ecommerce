@@ -53,7 +53,7 @@ Route::group(['prefix'=>'order', 'middleware' => 'auth'],function(){
     //admin -> order routes
     Route::get('/',[OrderController::class,'index'])->name('order.index');
     Route::get('/show/{orderId}',[OrderController::class,'show'])->name('order.show');
-    Route::get('/update/status/{orderId}',[OrderController::class,'updateStatus'])->name('order.updtaeStatus');
+    Route::get('/update/status/{orderId}',[OrderController::class,'updateStatus'])->name('order.updateStatus');
     Route::get('/destroy/{orderId}',[OrderController::class,'destroy'])->name('order.destroy');
 });
 

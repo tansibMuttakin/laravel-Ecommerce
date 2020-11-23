@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Order;
 use App\Models\ProductSellCount;
+use App\Events\OrderStatusChanged;
 
 class OrderController extends Controller
 {
@@ -81,6 +82,7 @@ class OrderController extends Controller
             $order->status = 0;
         }
         $order->save();
+        event(new OrderStatusChanged($order));
         return redirect()->back();
     }
     public function destroy($orderId){
