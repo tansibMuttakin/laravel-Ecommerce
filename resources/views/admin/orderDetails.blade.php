@@ -46,10 +46,10 @@
                 </td>
                 <td>{{$orders->paymentMethod}}</td>
                 <td>
-                    @if($orders->status === 0)
-                    <div class="btn btn-danger">Pending</div>
-                    @elseif($orders->status === 1)
-                    <div class="btn btn-success">Delivered</div>
+                    @if ($orders->status == 0)
+                        <a href="{{route('order.updtaeStatus',$orders->id)}}" class="btn btn-danger">processing</a>
+                    @else
+                        <a href="{{route('order.updtaeStatus',$orders->id)}}" class="btn btn-success">Delivered</a>
                     @endif
                 </td>
                 

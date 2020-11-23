@@ -73,6 +73,16 @@ class OrderController extends Controller
         }
         return view('admin.orderDetails')->with('orders',$orders)->with('totalBill',$totalBill);
     }
+    public function updateStatus($orderId){
+        $order = Order::find($orderId);
+        if ($order->status == 0) {
+            $order->status = 1;
+        }else{
+            $order->status = 0;
+        }
+        $order->save();
+        return redirect()->back();
+    }
     public function destroy($orderId){
         $order = Order::find($orderId);
         $order->delete();

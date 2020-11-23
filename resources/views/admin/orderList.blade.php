@@ -26,6 +26,7 @@
                                 <th> Name</th>
                                 <th>Email</th>
                                 <th>Address</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -36,6 +37,15 @@
                                 <td>{{$order->name}}</td>
                                 <td>{{$order->email}}</td>
                                 <td>{{$order->address}}</td>
+                                @if ($order->status == 0)
+                                    <td>
+                                        <a href="{{route('order.updtaeStatus',$order->id)}}" class="btn btn-danger">processing</a>
+                                    </td>
+                                @else
+                                    <td>
+                                        <a href="{{route('order.updtaeStatus',$order->id)}}" class="btn btn-success">Delivered</a>
+                                    </td>
+                                @endif
                                 <td>
                                     <a href="{{route('order.show',$order->id)}}" class="btn btn-info">Details</a>
                                     <a href="{{route('order.destroy',$order->id)}}" class="btn btn-danger">Delete</a>
