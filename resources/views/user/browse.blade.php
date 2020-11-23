@@ -147,9 +147,24 @@
 @push('scripts')
   {{-- pusher js code --}}
   <script>
+    // var notificationsWrapper   = $('.dropdown-notifications');
+    // var notificationsToggle    = notificationsWrapper.find('a[data-toggle]');
+    // var notificationsCountElem = notificationsToggle.find('i[data-count]');
+    // var notificationsCount     = parseInt(notificationsCountElem.data('count'));
+    // var notifications          = notificationsWrapper.find('ul.dropdown-menu');
+    // console.log(notificationsWrapper);
+    // console.log(notificationsToggle);
+    // console.log(notificationsCountElem);
+    // console.log(notificationsCount);
+    // console.log(notifications);
+    
+    // if (notificationsCount <= 0) {
+    //   notificationsWrapper.hide();
+    // }
+
     @if(Auth::check())
         // Enable pusher logging - don't include this in production
-        Pusher.logToConsole = true;
+        // Pusher.logToConsole = true;
 
         var pusher = new Pusher('abf9f842597977bf810e', {
           encrypted: true,
@@ -158,7 +173,29 @@
 
         var channel = pusher.subscribe('orderTracker.'+{{Auth::user()->id}});
         channel.bind("App\\Events\\OrderStatusChanged", function(data) {
-            alert("true");
+          // alert("true");
+          // var existingNotifications = notifications.html();
+          // var newNotificationHtml = `
+          //   <li class="notification active">
+          //       <div class="media">
+          //         <div class="media-body">
+          //           <strong class="notification-title">`+data.message+`</strong>
+          //           <!--p class="notification-desc">Extra description can go here</p-->
+          //           <div class="notification-meta">
+          //             <small class="timestamp">about a minute ago</small>
+          //           </div>
+          //         </div>
+          //       </div>
+          //   </li>
+          // `;
+          // notifications.html(newNotificationHtml + existingNotifications);
+
+          // notificationsCount += 1;
+          // notificationsCountElem.attr('data-count', notificationsCount);
+          // notificationsWrapper.find('.notif-count').text(notificationsCount);
+          // notificationsWrapper.show();
+
+          document.querySelector(".notif-count").innerHTML=`(10)`;
         });
     @endif
   </script>

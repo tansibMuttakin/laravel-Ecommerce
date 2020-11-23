@@ -193,21 +193,15 @@
                       </li>
                       <li class="dropdown dropdown-notifications">
                         <a href="#notifications-panel" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fas fa-bell"></i>
+                            <i data-count="0" class="fas fa-bell"></i><span class="notif-count" style="margin-left: 5px">(0)</span>
                         </a>
-          
-                        <div class="dropdown-container">
-                          <div class="dropdown-toolbar">
-                            <div class="dropdown-toolbar-actions">
-                              <a href="#">Mark all as read</a>
-                            </div>
-                            <h3 class="dropdown-toolbar-title"><span class="notif-count">(0)</span></h3>
-                          </div>
-                          <ul class="dropdown-menu">
-                          </ul>
-                          <div class="dropdown-footer text-center">
-                            <a href="#">View All</a>
-                          </div>
+                        <div class="dropdown-container" style="display: none">
+                            <ul class="dropdown-menu">
+                                <li>notification-1</li>
+                                <li>notification-1</li>
+                                <li>notification-1</li>
+                                <li>notification-1</li>
+                            </ul>
                         </div>
                       </li>
                       @endguest
