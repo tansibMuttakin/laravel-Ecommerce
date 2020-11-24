@@ -65,6 +65,24 @@ nav button:hover{
     background-color: green;
     color: #fff
 }
+a.notification {
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    padding: 15px 26px;
+    position: relative;
+    display: inline-block;
+    border-radius: 2px;
+}
+span.badge {
+    position: absolute;
+    top: 4px;
+    right: 10px;
+    padding: 1px 4px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+}
 span{
     background-color: #fff;
     border-radius: 4px;

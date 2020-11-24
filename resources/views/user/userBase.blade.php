@@ -191,18 +191,22 @@
                       <li class="nav-links" style="flex: 1;">
                         <a class="dropdown-item" href="{{route('order.track')}}">Track Order</a>
                       </li>
-                      <li class="dropdown dropdown-notifications">
-                        <a href="#notifications-panel" class="dropdown-toggle" data-toggle="dropdown">
-                            <i data-count="0" class="fas fa-bell"></i><span class="notif-count" style="margin-left: 5px">(0)</span>
-                        </a>
-                        <div class="dropdown-container" style="display: none">
-                            <ul class="dropdown-menu">
-                                <li>notification-1</li>
-                                <li>notification-1</li>
-                                <li>notification-1</li>
-                                <li>notification-1</li>
-                            </ul>
-                        </div>
+                      <li class="dropdown-notifications">
+                            {{-- <a href="#" class="dropdown-toggle">
+                                <i data-count="0" class="fas fa-bell"></i><span class="notif-count" style="margin-left: 5px">(0)</span>
+                            </a> --}}
+                            <a href="#" class="notification">
+                                <i data-count="0" class="fas fa-bell"></i>
+                                <span class="badge">3</span>
+                            </a>
+                            <div class="dropdown-container" style="display: none">
+                                <ul class="dropdown-menu">
+                                    <li>notification-1</li>
+                                    <li>notification-1</li>
+                                    <li>notification-1</li>
+                                    <li>notification-1</li>
+                                </ul>
+                            </div>
                       </li>
                       @endguest
                       <li class="nav-links" style="flex: 1;">
@@ -258,6 +262,9 @@
       })
       document.querySelector(".close-sidebar").addEventListener('click',function(e){
         document.getElementById("mySidebar").style.width = "0%";
+      })
+      document.querySelector(".dropdown-notifications").addEventListener('click',function(){
+          document.querySelector(".dropdown-container").style.display="block";
       })
     </script>
      
